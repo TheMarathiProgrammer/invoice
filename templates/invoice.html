@@ -1,0 +1,97 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>{{title}}</title>
+        <style type="text/css">
+            body {
+                font-weight: 200;
+                font-size: 14px;
+            }
+            .header {
+                font-size: 20px;
+                font-weight: 100;
+                text-align: center;
+                color: #007cae;
+            }
+            .title {
+                font-size: 22px;
+                font-weight: 100;
+               /* text-align: right;*/
+               padding: 10px 20px 0px 20px;  
+            }
+            .title span {
+                color: #007cae;
+            }
+            .details {
+                padding: 10px 20px 0px 20px;
+                text-align: left !important;
+                /*margin-left: 40%;*/
+            }
+            .hrItem {
+                border: none;
+                height: 1px;
+                /* Set the hr color */
+                color: #333; /* old IE */
+                background-color: #fff; /* Modern Browsers */
+            }
+        </style>
+    </head>
+    <body>
+        <div class='wrapper'>
+            <div class='header'>
+                <p class='title'>{{username}}</p>
+            </div>
+        <div>
+        <div class='details'>
+            Amount: {{total}} <br/>
+            Date: {{date}}
+            <hr class='hrItem' />
+        </div>
+        <table>
+        	<thead>
+        		<tr>
+        			<td>Items</td>
+        			<td>Quantity</td>
+        			<td>Total</td>
+        		</tr>
+        	</thead>
+        	<tbody>
+        		{%for i in order%}
+					{%if i.user_id == user%}
+						{%for j in orderitem%}
+							{%if j.order_id == i.id%}
+                            {%if i.complete == False %}
+        		<tr>
+        			<td>{{j.product.name}}</td>
+        			<td>{{j.quantity}}</td>
+        			<td>{{j.get_total}}</td>
+        		</tr>
+        		{%endif%}
+                {%endif%}
+		{%endfor%}
+	{%endif%}
+{%endfor%}
+        	</tbody>
+        </table>
+        <hr class='hrItem' />
+        <table>
+        	<thead>
+        		<tr>
+        			<td></td>
+        			<td></td>
+        			<td></td>
+        		</tr>
+        	</thead>
+        	<tbody>
+        		<tr>
+        			<td>Total:</td>
+        			<td></td>
+        			<td>{{total}}</td>
+        		</tr>
+        		
+        	</tbody>
+        </table>
+    </div>
+    </body>
+</html>

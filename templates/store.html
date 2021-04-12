@@ -1,0 +1,38 @@
+{%extends 'main.html'%}
+{% load static %}
+{%block content%}
+{%if request.user.is_authenticated%}
+	<div class="jumbotron ">
+		<div class="container text-center ">
+			<h1>Welcome to the Bill Desk....</h1>      
+			<p style="color:blue; font-size:30px;" ><b>{{request.user}} <b></p>
+				<a class="btn btn-outline-primary" href="{%url 'form'%}" role="button"><i class="fa fa-plus" aria-hidden="true"></i> Add Product</a>
+				
+		</div>
+	</div>
+		{%else%}
+		<div class="jumbotron ">
+			<div class="container text-center ">
+				<h1>Welcome to the Bill Desk....</h1>      
+				<p>Make your bill easily.<a href="{%url 'login' %}">Login</a>/<a href="{%url 'signup' %}">Signup</a></p>
+			</div>
+	</div>
+	{%endif%}
+<div class="row">
+	{%for product in products%}
+	{%if product.user_id == user_id %}
+	<div class="col-lg-4">
+		<div class="box-element product">
+			<h6><strong>{{product.name}}</strong></h6>
+			<hr>
+			<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add To Cart</button>
+			<a class="btn btn-outline-success" href="#">View</a>
+			<h4 style="display: inline-block; float: right;">${{product.price|floatformat:2}}</h4>
+		</div>
+	</div>
+	{%endif%}
+	{%endfor%}
+
+
+</div>
+{%endblock content%}

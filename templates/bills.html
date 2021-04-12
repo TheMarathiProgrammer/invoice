@@ -1,0 +1,10 @@
+{%for i in order%}
+	{%if i.user_id == user%}
+		{%for j in orderitem%}
+			{%if j.order_id == i.id%}
+				{{j.product.name}}
+				{{j.quantity}}
+			{%endif%}
+		{%endfor%}
+	{%endif%}
+{%endfor%}
