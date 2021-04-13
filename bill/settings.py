@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'bx1!s+k2zhg(1u=nr!4_urx%to5d&n10!)$_uik01rruit*o4f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['invoicegenerat.herokuapp.com','127.0.0.1']
 
 
 # Application definition
