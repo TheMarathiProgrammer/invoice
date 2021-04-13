@@ -122,7 +122,6 @@ PyJWT==1.7.1
 pymongo==3.9.0
 pyparsing==2.4.0
 PyPDF2==1.26.0
-pypiwin32==223
 PyPrind==2.11.2
 pyrsistent==0.15.2
 pyspellchecker==0.5.4
